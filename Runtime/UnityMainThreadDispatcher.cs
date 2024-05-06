@@ -84,7 +84,7 @@ namespace PimDeWitte.UnityMainThreadDispatcher {
 		}
 
 
-		IEnumerator ActionWrapper(Action a)
+		private IEnumerator ActionWrapper(Action a)
 		{
 			a();
 			yield return null;
@@ -105,14 +105,14 @@ namespace PimDeWitte.UnityMainThreadDispatcher {
 		}
 
 
-		void Awake() {
+		private void Awake() {
 			if (_instance == null) {
 				_instance = this;
 				DontDestroyOnLoad(this.gameObject);
 			}
 		}
 
-		void OnDestroy() {
+		private void OnDestroy() {
 				_instance = null;
 		}
 
